@@ -1,0 +1,22 @@
+#!/bin/bash --login
+#SBATCH --nodes=1
+#SBATCH --mem-per-cpu=10000
+#SBATCH --cpus-per-task=1
+#SBATCH --time=03:30:00
+
+make clean
+make
+
+mkdir -p serial_best
+
+for n in {1..10};
+do
+
+    #SEED=n;
+    time ./revGOL cmse2.txt $n 
+    #; #} 2>> serial_times{$n}.txt
+    #//mv serial_times{$n}.txt serial_best
+
+done
+
+
