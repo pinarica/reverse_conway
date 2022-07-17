@@ -1,0 +1,8 @@
+#!/bin/bash --login
+
+#SBATCH --time=00:45:00
+#SBATCH --mem=100G
+#SBATCH -N 50
+#SBATCH -c 1
+
+time srun ./source/revGOL ./source/cmse2.txt
